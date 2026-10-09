@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080b17">
+  <meta name="description" content="ThreatRadar — live open-source cyber threat intelligence, transparent triage and source-linked reporting.">
+  <title>ThreatRadar | Cyber Intelligence Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div><div class="ambient ambient-c"></div>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#overview" aria-label="ThreatRadar home">
+      <span class="brand-symbol"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M5 19.5h7l3.2-10 4.4 16 3.1-8H29"/><circle cx="17" cy="17" r="14"/></svg></span>
+      <span class="brand-copy"><strong>threat<span>radar</span><em>◉</em></strong><small>CYBER INTELLIGENCE CONSOLE</small></span>
+    </a>
+    <div class="side-caption">COMMAND CENTER <span>01</span></div>
+    <nav class="nav-list" aria-label="Main navigation">
+      <a class="nav-link active" href="#overview"><span class="nav-icon">◫</span><span>Overview</span><span class="nav-arrow">↗</span></a>
+      <a class="nav-link" href="#feed"><span class="nav-icon">⌕</span><span>Live threat feed</span><span class="nav-badge" id="navCount">0</span></a>
+      <a class="nav-link" href="#insights"><span class="nav-icon">◒</span><span>Signal analytics</span></a>
+      <a class="nav-link" href="#saved"><span class="nav-icon">▣</span><span>Saved intelligence</span><span class="nav-badge" id="savedCount">0</span></a>
+      <a class="nav-link" href="#method"><span class="nav-icon">⌘</span><span>Methodology</span></a>
+    </nav>
+    <div class="side-caption recent-caption">RECENT QUERIES <span>LOCAL</span></div>
+    <div class="query-history" id="queryHistory"><p class="history-empty">Your recent scans will appear here.</p></div>
+    <div class="sidebar-spacer"></div>
+    <div class="engine-card">
+      <div class="engine-card-top"><span class="engine-pulse"></span><span>INTELLIGENCE ENGINE</span><span class="engine-version">API</span></div>
+      <div class="engine-status" id="connectionLabel">CHECKING STATUS</div>
+      <div class="engine-provider"><span class="provider-mark">S</span><span><b>SerpApi</b><small>Google News Search</small></span><span class="provider-dot" id="providerDot"></span></div>
+    </div>
+    <div class="sidebar-note"><span class="note-glyph">⌁</span><p>Observe the signal.<br>Verify before action.</p><small>THREATRADAR · OSINT WORKSPACE</small></div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div class="mobile-brand"><span class="mini-mark">TR</span> THREATRADAR <span class="mobile-dot"></span></div>
+      <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="breadcrumbCurrent">Overview</strong></div>
+      <div class="topbar-right">
+        <span class="system-pill"><i></i><span id="systemPillText">SYSTEM CHECK</span></span>
+        <span class="utc-clock"><span class="clock-dot"></span><span id="clock">--:--:--</span></span>
+        <span class="top-divider"></span><span class="date-label" id="dateLabel">SECURITY MONITORING</span>
+        <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Toggle light theme" title="Toggle light theme">☼</button>
+        <button class="avatar" type="button" title="ThreatRadar workspace" aria-label="ThreatRadar workspace">TR</button>
+      </div>
+    </header>
+
+    <section class="hero" id="overview">
+      <div class="hero-copy-wrap">
+        <div class="eyebrow"><span class="eyebrow-bars"><i></i><i></i><i></i></span> OPEN-SOURCE INTELLIGENCE <span class="eyebrow-line"></span><span class="eyebrow-index">SYS.01 // LIVE</span></div>
+        <h1>See the signal.<br><span>Stay ahead of the noise.</span></h1>
+        <p class="hero-copy">A live operations view for the public cyber threat landscape. Discover emerging stories, prioritize signals with transparent heuristics, and pivot directly to original reporting.</p>
+        <div class="hero-meta"><span><i class="meta-check">✓</i> Source-linked reporting</span><span><i class="meta-check">✓</i> Explainable triage</span><span><i class="meta-check">✓</i> Local-first saved intel</span></div>
+        <div class="hero-actions"><a class="hero-cta" href="#searchPanel">Start intelligence scan <span>↗</span></a><span class="hero-footnote"><i></i> HUMAN REVIEW REQUIRED</span></div>
+      </div>
+      <div class="radar-visual" aria-label="Decorative radar visualization">
+        <div class="radar-grid"></div><div class="radar-sweep"></div><div class="radar-ring ring-a"></div><div class="radar-ring ring-b"></div><div class="radar-ring ring-c"></div><div class="radar-cross cross-x"></div><div class="radar-cross cross-y"></div>
+        <span class="radar-point point-a"></span><span class="radar-point point-b"></span><span class="radar-point point-c"></span><span class="radar-point point-d"></span>
+        <div class="radar-center"><span>TR</span><small>SCANNING</small></div><div class="radar-coord coord-a">LAT 51.5072</div><div class="radar-coord coord-b">OSINT / 01</div><div class="radar-orbit-label">SIGNAL FIELD</div>
+      </div>
+      <div class="hero-index">THREAT INTELLIGENCE <b>BUILD 02.6</b></div>
+    </section>
+
+    <section class="metrics-grid" aria-label="Threat intelligence metrics">
+      <article class="metric-card metric-primary"><div class="metric-top"><span class="metric-icon icon-cyan">⌁</span><span class="metric-trend">CURRENT QUERY</span></div><div class="metric-label">REPORTS IN VIEW</div><div class="metric-number" id="metricReports">—</div><div class="metric-bottom"><span class="metric-line"></span><span>Live source results</span></div><div class="metric-corner">01</div></article>
+      <article class="metric-card"><div class="metric-top"><span class="metric-icon icon-red">!</span><span class="metric-trend">PRIORITY SIGNALS</span></div><div class="metric-label">HIGH / CRITICAL</div><div class="metric-number" id="metricHigh">—</div><div class="metric-bottom"><span class="metric-line red-line"></span><span>Review these first</span></div><div class="metric-corner">02</div></article>
+      <article class="metric-card"><div class="metric-top"><span class="metric-icon icon-violet">◎</span><span class="metric-trend">SOURCE COVERAGE</span></div><div class="metric-label">PUBLISHERS TRACKED</div><div class="metric-number" id="metricSources">—</div><div class="metric-bottom"><span class="metric-line violet-line"></span><span>Unique sources in view</span></div><div class="metric-corner">03</div></article>
+      <article class="metric-card metric-updated"><div class="metric-top"><span class="metric-icon icon-green">↻</span><span class="metric-trend">ENGINE STATUS</span></div><div class="metric-label">LAST SCAN</div><div class="metric-number updated-number" id="metricUpdated">WAITING</div><div class="metric-bottom"><span class="metric-line green-line"></span><span id="metricUpdatedFoot">Run a scan to sync</span></div><div class="metric-corner">04</div></article>
+    </section>
+
+    <section class="search-panel surface-panel" id="searchPanel" aria-labelledby="searchHeading">
+      <div class="panel-decoration">QUERY ENGINE <b>01 / INPUT</b></div>
+      <div class="search-panel-head"><div><div class="section-kicker"><span class="kicker-dot"></span> INTELLIGENCE QUERY</div><h2 id="searchHeading">Scan the open web<span class="heading-period">.</span></h2><p class="panel-subtitle">Configure your scan. Searches run through your SerpApi key on the backend.</p></div>
+        <div class="search-engine"><span class="serp-logo">S</span><span class="engine-copy"><b>SerpApi</b><small>Google News engine</small></span><span class="engine-state" id="engineStatus">CONNECTING</span></div>
+      </div>
+      <form id="searchForm" class="query-form">
+        <label for="query">SEARCH TOPIC <span>FREE TEXT / CVE / CAMPAIGN</span></label>
+        <div class="search-input-row"><span class="search-glass" aria-hidden="true">⌕</span><input id="query" value="cybersecurity threat" maxlength="180" placeholder="Try ransomware campaign, CVE-2026…" autocomplete="off"><button type="submit" id="searchBtn"><span class="button-pulse"></span><span class="button-label">Run intelligence scan</span><span class="button-arrow">↗</span></button></div>
+        <div class="scan-options">
+          <label class="option-field"><span>REGION</span><select id="regionSelect" aria-label="Search region"><option value="in" selected>India · IN</option><option value="us">United States · US</option><option value="gb">United Kingdom · GB</option><option value="ca">Canada · CA</option><option value="au">Australia · AU</option></select></label>
+          <label class="option-field"><span>REPORT COUNT</span><select id="limitSelect" aria-label="Number of reports"><option value="10">10 reports</option><option value="15" selected>15 reports</option><option value="20">20 reports</option></select></label>
+          <div class="option-note"><span class="shield-mini">⌑</span><span>API key stays server-side</span><i></i></div>
+        </div>
+        <div class="quick-scan-row"><span class="quick-label">QUICK SCAN PROFILES</span><button type="button" class="query-chip" data-query="zero-day vulnerability exploited"><span class="chip-dot dot-red"></span>Zero-day exploits</button><button type="button" class="query-chip" data-query="ransomware campaign"><span class="chip-dot dot-orange"></span>Ransomware</button><button type="button" class="query-chip" data-query="phishing campaign credential theft"><span class="chip-dot dot-violet"></span>Phishing</button><button type="button" class="query-chip" data-query="data breach cybersecurity"><span class="chip-dot dot-blue"></span>Data breaches</button><button type="button" class="query-chip" data-query="CVE critical vulnerability"><span class="chip-dot dot-green"></span>Critical CVEs</button><button type="button" class="query-chip" data-query="cloud security misconfiguration attack"><span class="chip-dot dot-cyan"></span>Cloud security</button></div>
+      </form>
+      <div class="search-hint"><span class="hint-icon">i</span><span>Severity is a transparent keyword heuristic, not a verified CVSS score or confirmed incident assessment.</span><span class="hint-shortcut">SHORTCUT <b>/</b> FOCUS SEARCH</span></div>
+    </section>
+
+    <section class="feed-section" id="feed">
+      <div class="section-heading"><div><div class="section-kicker"><span class="kicker-dot"></span> LIVE INTELLIGENCE STREAM</div><h2>Threat feed <span id="feedCount" class="count-pill">0</span></h2><p class="section-description">Public reports matched to your active query. Save important items to your local intelligence board.</p></div><div class="feed-controls"><button id="exportCsvBtn" class="outline-button" type="button" title="Export current results as CSV">↓ CSV</button><button id="exportJsonBtn" class="outline-button" type="button" title="Export current results as JSON">{ } JSON</button><button id="refreshBtn" class="refresh-button" title="Run the current query again" aria-label="Refresh results"><span>↻</span></button></div></div>
+      <div class="feed-toolbar"><label class="feed-search"><span>⌕</span><input id="feedSearch" type="search" placeholder="Filter results by headline or source…" aria-label="Filter visible reports"></label><label class="filter-wrap"><span>SEVERITY</span><select id="severityFilter" aria-label="Filter severity"><option value="All">All severities</option><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select><span class="select-caret">⌄</span></label><label class="filter-wrap sort-filter"><span>SORT</span><select id="sortSelect" aria-label="Sort results"><option value="relevance">Source order</option><option value="risk">Highest risk</option><option value="source">Source A–Z</option></select><span class="select-caret">⌄</span></label></div>
+      <div id="errorBox" class="alert-box" role="alert" hidden><span class="alert-symbol">!</span><div class="alert-content"><b id="errorTitle">Search needs attention</b><p id="errorMessage"></p><div class="alert-actions"><a href="https://serpapi.com/manage-api-key" target="_blank" rel="noopener noreferrer" id="apiKeyLink">Open SerpApi dashboard ↗</a><button type="button" id="dismissError">Dismiss</button></div></div></div>
+      <div id="loading" class="loading-panel" hidden><div class="loader-orbit"><span></span><span></span><span></span></div><div><b>Collecting live threat reporting</b><p>Querying Google News through SerpApi. This can take a few seconds…</p></div><div class="loading-trail"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div id="results" class="results-grid"><div class="empty-state"><div class="empty-art"><span class="empty-ring"></span><span class="empty-cross">+</span><span class="empty-lens">⌕</span></div><span class="empty-kicker">SYSTEM STANDING BY</span><h3>Ready to find the signal.</h3><p>Run a scan to collect current security reporting from across the open web.</p><button class="secondary-button" id="starterBtn" type="button">Scan cybersecurity threats <span>↗</span></button></div></div>
+      <div class="feed-foot"><span><i class="footer-live-dot"></i> SOURCE: SERPAPI / GOOGLE NEWS</span><span id="feedFootQuery">AWAITING FIRST SCAN <b>·</b> LIVE PUBLIC REPORTING</span></div>
+    </section>
+
+    <section class="insights-section" id="insights">
+      <div class="section-heading insight-heading"><div><div class="section-kicker"><span class="kicker-dot purple-dot"></span> SIGNAL ANALYTICS</div><h2>Inside the current scan<span class="heading-period">.</span></h2><p class="section-description">Derived only from the reports currently in memory. Counts update when you scan or filter.</p></div><span class="data-stamp"><i></i> LOCAL ANALYSIS // LIVE</span></div>
+      <div class="analytics-grid">
+        <article class="analytics-card severity-card"><div class="analytics-title"><div><span class="card-overline">TRIAGE DISTRIBUTION</span><h3>Severity breakdown</h3></div><span class="mini-badge">HEURISTIC</span></div><div class="severity-chart" id="severityChart"><div class="chart-empty">Run a scan to calculate the distribution.</div></div><div class="chart-foot"><span>Based on headline + snippet keywords</span><span id="severityTotal">0 reports</span></div></article>
+        <article class="analytics-card source-card"><div class="analytics-title"><div><span class="card-overline">PUBLISHER COVERAGE</span><h3>Top sources in view</h3></div><span class="source-glyph">◉</span></div><div id="sourceList" class="source-list"><div class="chart-empty">Publisher signals appear after a scan.</div></div><div class="chart-foot"><span>Distinct source labels</span><span id="sourceTotal">0 sources</span></div></article>
+        <article class="analytics-card signal-card"><div class="analytics-title"><div><span class="card-overline">RELATIVE SIGNAL INDEX</span><h3>Priority pulse</h3></div><span class="pulse-badge"><i></i> COMPUTED</span></div><div class="signal-score-wrap"><div class="signal-score" id="signalScore">—<small>/100</small></div><div class="signal-gauge"><svg viewBox="0 0 180 100" aria-label="Relative signal gauge"><path class="gauge-track" d="M15 88 A75 75 0 0 1 165 88"/><path class="gauge-value" id="gaugeValue" d="M15 88 A75 75 0 0 1 165 88"/></svg></div></div><div class="signal-level" id="signalLevel">AWAITING REPORTS</div><p class="signal-explain">A simple weighted summary of severity labels in the current result set. This is not a validated risk model.</p><div class="signal-factors"><span><i class="factor-dot factor-critical"></i>Critical <b id="factorCritical">0</b></span><span><i class="factor-dot factor-high"></i>High <b id="factorHigh">0</b></span><span><i class="factor-dot factor-medium"></i>Medium <b id="factorMedium">0</b></span></div></article>
+      </div>
+    </section>
+
+    <section class="saved-section" id="saved">
+      <div class="section-heading"><div><div class="section-kicker"><span class="kicker-dot gold-dot"></span> PERSONAL INTELLIGENCE BOARD</div><h2>Saved intelligence <span id="savedHeadingCount" class="count-pill">0</span></h2><p class="section-description">Keep useful reports for your demo or follow-up. Items are stored in this browser only.</p></div><div class="saved-actions"><button class="outline-button" id="exportSavedBtn" type="button">↓ Export saved</button><button class="outline-button danger-outline" id="clearSavedBtn" type="button">Clear board</button></div></div>
+      <div id="savedResults" class="saved-grid"><div class="saved-empty"><span>▣</span><b>Your board is empty</b><p>Use “Save report” on any threat feed item to collect intelligence here.</p></div></div>
+    </section>
+
+    <section class="method-section" id="method"><div class="section-heading method-heading"><div><div class="section-kicker"><span class="kicker-dot"></span> INTELLIGENCE WORKFLOW</div><h2>From search to signal<span class="heading-period">.</span></h2><p class="section-description">A transparent, repeatable workflow designed for fast situational awareness.</p></div><span class="method-badge">THREE STAGES</span></div><div class="method-grid"><article class="method-card"><div class="method-card-top"><span class="method-number">01</span><span class="method-icon">⌕</span></div><h3>Discover</h3><p>Retrieve current public reporting from your chosen topic and region.</p><div class="method-line"><span></span></div></article><article class="method-card"><div class="method-card-top"><span class="method-number">02</span><span class="method-icon">◈</span></div><h3>Prioritize</h3><p>Apply visible keyword rules to sort stories into heuristic severity bands.</p><div class="method-line violet-method"><span></span></div></article><article class="method-card"><div class="method-card-top"><span class="method-number">03</span><span class="method-icon">↗</span></div><h3>Verify</h3><p>Visit the publisher's original page and confirm context before taking action.</p><div class="method-line blue-method"><span></span></div></article></div><div class="disclaimer-row"><span>⚠</span><p><b>Operational note:</b> ThreatRadar analyzes public news reporting. It does not scan networks, verify exploits, replace a SIEM/EDR, or provide incident-response automation.</p></div></section>
+    <footer class="app-footer"><span class="footer-brand">THREATRADAR <i>×</i> HACKATHON BUILD</span><span>Built for transparent, source-first cyber situational awareness.</span><a href="#overview">BACK TO TOP ↑</a></footer>
+  </main>
+</div>
+<div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
