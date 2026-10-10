@@ -67,6 +67,41 @@
       <div class="hero-index">THREAT INTELLIGENCE <b>BUILD 02.6</b></div>
     </section>
 
+    <section class="visual-intel-strip" aria-label="ThreatRadar visual intelligence modules">
+      <article class="visual-intel-card visual-map-card">
+        <div class="visual-card-head"><span><i class="visual-live-dot"></i> GLOBAL SIGNAL FIELD</span><b>01 / DISCOVER</b></div>
+        <div class="visual-map-art" aria-hidden="true">
+          <svg viewBox="0 0 520 190" role="img">
+            <defs><linearGradient id="mapGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#42f5df" stop-opacity=".85"/><stop offset="1" stop-color="#8b5cf6" stop-opacity=".3"/></linearGradient><pattern id="mapGrid" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22 0H0V22" fill="none" stroke="#4ce8dc" stroke-opacity=".13" stroke-width=".6"/></pattern></defs>
+            <rect width="520" height="190" fill="url(#mapGrid)"/>
+            <g fill="url(#mapGlow)" fill-opacity=".12" stroke="#59e9df" stroke-opacity=".45" stroke-width="1.1"><path d="M35 49l24-19 38 5 12 16-17 14-5 24-21 4-12-19-18-3z"/><path d="M107 102l19 8 10 26-12 28-15-12-9-29z"/><path d="M206 42l21-13 29 7 17 15 30 1 17 20-19 11-18-9-18 12-23-9-13-18-19 3z"/><path d="M247 91l30-7 23 16 6 29-17 34-20-9-8-28-18-13z"/><path d="M337 47l22-12 41 8 28 18-8 20-32 3-19 17-19-14-20-17z"/><path d="M407 116l28-5 22 17-12 23-30-3-15-16z"/></g>
+            <g fill="none" stroke="#6ef5e7" stroke-width="1.2" stroke-opacity=".6"><path d="M76 65Q180 4 247 65T370 65T433 70" stroke-dasharray="4 5"/><path d="M124 128Q222 173 281 119T411 130" stroke-dasharray="3 6"/></g>
+            <g><circle cx="76" cy="65" r="4" fill="#67f7e3"/><circle cx="76" cy="65" r="11" fill="none" stroke="#67f7e3" stroke-opacity=".6"><animate attributeName="r" values="6;15;6" dur="3s" repeatCount="indefinite"/></circle><circle cx="247" cy="65" r="4" fill="#b49aff"/><circle cx="370" cy="65" r="4" fill="#67f7e3"/><circle cx="411" cy="130" r="4" fill="#ff9b72"/></g>
+            <text x="12" y="177" fill="#83a8ba" font-size="8" letter-spacing="2">PUBLIC REPORTING / LIVE QUERY</text><text x="440" y="177" fill="#6df4df" font-size="8" letter-spacing="1">OSINT</text>
+          </svg>
+          <span class="visual-float-tag tag-one"><i></i> SIGNAL DETECTED</span><span class="visual-float-tag tag-two">SOURCE-LINKED</span>
+        </div>
+        <div class="visual-card-caption"><div><h3>Threat landscape</h3><p>Search public reporting across regions and threat topics.</p></div><span class="visual-card-arrow">↗</span></div>
+      </article>
+      <article class="visual-intel-card visual-analytics-card">
+        <div class="visual-card-head"><span><i class="visual-purple-dot"></i> TRIAGE INTELLIGENCE</span><b>02 / PRIORITIZE</b></div>
+        <div class="visual-analytics-art" aria-hidden="true">
+          <div class="visual-score-ring"><div><strong>72</strong><small>RELATIVE<br>SIGNAL</small></div></div>
+          <div class="visual-bars"><div><span>CRITICAL</span><i><b style="width:76%"></b></i><em>76</em></div><div><span>HIGH</span><i><b style="width:58%"></b></i><em>58</em></div><div><span>MEDIUM</span><i><b style="width:38%"></b></i><em>38</em></div><div><span>LOW</span><i><b style="width:19%"></b></i><em>19</em></div></div>
+          <div class="visual-scan-line"></div>
+        </div>
+        <div class="visual-card-caption"><div><h3>Signal analytics</h3><p>Turn headlines into transparent, heuristic priority bands.</p></div><span class="visual-card-arrow">↗</span></div>
+      </article>
+      <article class="visual-intel-card visual-source-card">
+        <div class="visual-card-head"><span><i class="visual-blue-dot"></i> SOURCE VALIDATION</span><b>03 / VERIFY</b></div>
+        <div class="visual-source-art" aria-hidden="true">
+          <div class="source-window"><div class="source-window-top"><span></span><span></span><span></span><b>THREAT REPORT / 0x31</b></div><div class="source-window-body"><div class="source-emblem">↗</div><div class="source-lines"><i class="long"></i><i></i><i class="medium"></i><i class="short"></i></div><div class="source-stamp"><span>ORIGINAL SOURCE</span><b>VERIFY CONTEXT</b></div></div></div>
+          <div class="source-check-bubble">✓</div><div class="source-orbit"></div>
+        </div>
+        <div class="visual-card-caption"><div><h3>Source-first workflow</h3><p>Open original publisher links and verify context before action.</p></div><span class="visual-card-arrow">↗</span></div>
+      </article>
+    </section>
+
     <section class="metrics-grid" aria-label="Threat intelligence metrics">
       <article class="metric-card metric-primary"><div class="metric-top"><span class="metric-icon icon-cyan">⌁</span><span class="metric-trend">CURRENT QUERY</span></div><div class="metric-label">REPORTS IN VIEW</div><div class="metric-number" id="metricReports">—</div><div class="metric-bottom"><span class="metric-line"></span><span>Live source results</span></div><div class="metric-corner">01</div></article>
       <article class="metric-card"><div class="metric-top"><span class="metric-icon icon-red">!</span><span class="metric-trend">PRIORITY SIGNALS</span></div><div class="metric-label">HIGH / CRITICAL</div><div class="metric-number" id="metricHigh">—</div><div class="metric-bottom"><span class="metric-line red-line"></span><span>Review these first</span></div><div class="metric-corner">02</div></article>
